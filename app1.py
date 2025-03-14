@@ -191,7 +191,7 @@ def main():
             "Text Generator", "Describe Image", "Compare Images", "Object Detection", "Describe Audio"
         ])
         
-        client = genai.Client(api_key=api_key=st.secrets.get("GEMINI_API_KEY"))
+        client = genai.Client(api_key=st.secrets.get("GEMINI_API_KEY"))
         
         if use_case == "Text Generator":
             prompt = st.text_area("Enter prompt for text generation:")
@@ -254,7 +254,7 @@ def main():
             "Text Chat", "Text Embeddings", "Image Analysis", "Code Completion"
         ])
         
-        client = Mistral(api_key=api_key=st.secrets.get("MISTRAL_API_KEY"))
+        client = Mistral(api_key=st.secrets.get("MISTRAL_API_KEY"))
         
         if use_case == "Text Chat":
             prompt = st.text_input("Enter a prompt:")
