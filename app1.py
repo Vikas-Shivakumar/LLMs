@@ -13,14 +13,6 @@ import time
 import anthropic
 import cohere
 
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Get the API key from the environment
-openai_api_key = os.getenv("OPENAI_API_KEY")
-
 # Additional Colors
 additional_colors = [colorname for (colorname, colorcode) in ImageColor.colormap.items()]
 
@@ -158,7 +150,7 @@ def main():
             "Joke Generator", "Image Generator", "Text Embeddings", "Text-to-Speech", "Audio Transcription"
         ])
         
-        client = OpenAI(api_key=openai_api_key)
+        client = OpenAI(api_key=st.secrets.get("OPENAI_API_KEY"))
         
         if use_case == "Joke Generator":
             prompt = st.text_input("Enter a prompt for the joke:", "Tell me a programming joke")
