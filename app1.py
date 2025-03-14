@@ -191,7 +191,7 @@ def main():
             "Text Generator", "Describe Image", "Compare Images", "Object Detection", "Describe Audio"
         ])
         
-        client = genai.Client(api_key="AIzaSyDSmkGuwvm0ycSO5XDhmYcN-fQxkrxSU44")
+        client = genai.Client(api_key=api_key=st.secrets.get("GEMINI_API_KEY"))
         
         if use_case == "Text Generator":
             prompt = st.text_area("Enter prompt for text generation:")
@@ -254,7 +254,7 @@ def main():
             "Text Chat", "Text Embeddings", "Image Analysis", "Code Completion"
         ])
         
-        client = Mistral(api_key="qatAdWnJ84mx2eYRfyfANRCCSFyeGt0e")
+        client = Mistral(api_key=api_key=st.secrets.get("MISTRAL_API_KEY"))
         
         if use_case == "Text Chat":
             prompt = st.text_input("Enter a prompt:")
@@ -381,13 +381,13 @@ def main():
 
 
     elif llm_choice == "Claude":
-    ## Claude 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
+    
 
         use_case = st.selectbox("Select Claude Use Case:", [
             "Text Chat"
         ])
         
-        client = anthropic.Anthropic(api_key='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')
+        client = anthropic.Anthropic(api_key=st.secrets.get("CLAUDE_API_KEY"))
         
         if use_case == "Text Chat":
             text = st.text_input("Enter a text:")
@@ -435,13 +435,12 @@ def main():
                 st.write(response.choices[0].message.content)       
 
     elif llm_choice == "Cohere":
-    ## Claude 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
-
+   
         use_case = st.selectbox("Select Deepseek Use Case:", [
             "Text Chat"
         ])
         
-        co = cohere.ClientV2("w1XUNo0wLCqhZFiqsftBI1ca7fFQnq18PvQX7Mjp") 
+        co = cohere.ClientV2(st.secrets.get("COHERE_API_KEY")) 
         if use_case == "Text Chat":
             text = st.text_input("Enter a text:")
             if st.button("Generate Response"):
