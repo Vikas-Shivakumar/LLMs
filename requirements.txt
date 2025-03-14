@@ -1,6 +1,6 @@
 openai
 google
-PIL
+Pillow
 mistralai
 requests
 time
