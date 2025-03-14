@@ -1,4 +1,9 @@
+python-dotenv
 openai
-google
-Pillow
-
+streamlit
+google-genai
+pillow
+mistralai
+requests
+anthropic
+cohere
